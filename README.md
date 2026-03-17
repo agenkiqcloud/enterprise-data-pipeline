@@ -13,6 +13,7 @@ Sales Upload → S3 (Raw) → Lambda → S3 (Clean) → Glue ETL → S3 (Process
 ## 🧩 Components
 
 ### 1. 📥 Data Ingestion
+
 - Source: CSV / Excel upload
 - Service: Amazon S3 (Raw Bucket)
 - Bucket: `enterprise-data-raw`
@@ -23,7 +24,8 @@ Sales Upload → S3 (Raw) → Lambda → S3 (Clean) → Glue ETL → S3 (Process
 
 Triggered automatically when a file is uploaded to S3.
 
-#### Key Features:
+#### Key Features
+
 - Validates required columns
 - Removes:
   - Null values
@@ -33,7 +35,8 @@ Triggered automatically when a file is uploaded to S3.
 - Adds:
   - `revenue = price × quantity`
 
-#### Output:
+#### Output: -store in clean bucket
+
 - Writes cleaned data to:
 - s3://enterprise-data-clean/cleaned/
 
@@ -41,16 +44,15 @@ Triggered automatically when a file is uploaded to S3.
 
 Triggered after Lambda execution.
 
-#### Transformations:
+#### Transformations
+
 - Remove duplicates
 - Aggregate revenue
 - Group by product
 
-#### Output:
-- Stored in Parquet format:
+#### Output: - Stored in Parquet format
   
 s3://enterprise-data-processed/
-
 
 ---
 
@@ -73,19 +75,23 @@ s3://enterprise-data-processed/
 ---
 
 ## 📂 Project Structure
+
 enterprise-data-pipeline/
 │
-├── lambda/
-│ └── datapipeline-lambda.py
-│
-├── glue/
-│ └── lambda-etl-glue-job.py
-│
-├
+├── architecture-diagram/
+│   └── arch.png                # AWS architecture diagram of the pipeline
 │
 ├── data-files/
-│ └── sales.csv
-├── architecture-diagram/
-│ └── arch.png
-├── README.md
-└── .gitignore
+│   └── sales.csv              # Sample input dataset for processing
+│
+├── glue/
+│   └── lambda-etl-glue-job.py # AWS Glue ETL job script
+│
+├── lambda/
+│   ├── datapipeline-lambda.py # Lambda function to trigger/process pipeline
+│   └── requirements.txt       # Python dependencies for Lambda
+│
+├── .gitignore                 # Files and folders ignored by Git
+├── Dockerfile                 # Container setup (if used for deployment/testing)
+├── LICENSE                    # Project license
+└── README.md                  # Project documentation
