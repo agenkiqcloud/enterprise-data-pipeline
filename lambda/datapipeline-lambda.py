@@ -10,7 +10,7 @@ logger.setLevel(logging.INFO)
 s3 = boto3.client("s3")
 glue = boto3.client("glue")
 
-CLEAN_BUCKET = "enterprise-data-clean-26"
+CLEAN_BUCKET = "enterprise-data-clean"
 GLUE_JOB_NAME = "lambda-etl-job"
 
 def lambda_handler(event, context):

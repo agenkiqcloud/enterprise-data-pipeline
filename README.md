@@ -35,7 +35,7 @@ Triggered automatically when a file is uploaded to S3.
 
 #### Output:
 - Writes cleaned data to:
-- s3://enterprise-data-clean-26/cleaned/
+- s3://enterprise-data-clean/cleaned/
 
 ### 3. 🔄 AWS Glue (ETL Processing)
 
@@ -49,7 +49,7 @@ Triggered after Lambda execution.
 #### Output:
 - Stored in Parquet format:
   
-s3://enterprise-data-processed-26/
+s3://enterprise-data-processed/
 
 
 ---

@@ -18,7 +18,7 @@ logger.info("Glue Job Started")
 
 # -------- READ CLEAN DATA --------
 
-input_path = "s3://enterprise-data-clean-26/cleaned/raw"
+input_path = "s3://enterprise-data-clean/cleaned/raw"
 
 print(f"Reading data from: {input_path}")
 logger.info(f"Reading data from: {input_path}")
@@ -100,7 +100,7 @@ logger.info(f"Rows after aggregation: {agg_rows}")
 
 # -------- WRITE OUTPUT --------
 
-output_path = "s3://enterprise-data-processed-26/sales-summary/"
+output_path = "s3://enterprise-data-processed/sales-summary/"
 
 print(f"Writing output to: {output_path}")
 logger.info(f"Writing output to: {output_path}")
