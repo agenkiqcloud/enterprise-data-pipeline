@@ -85,6 +85,7 @@ enterprise-data-pipeline/
 │
 ├── data-files/
 │ └── sales.csv
-│
+├── architecture-diagram/
+│ └── arch.png
 ├── README.md
 └── .gitignore
